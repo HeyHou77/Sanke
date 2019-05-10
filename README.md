@@ -1,4 +1,4 @@
 # Sanke
 Working on Snake versions and KI's from scratch
 
-First Snake commit.
+Let's see if we can get a jupyter notebook snake application working.
