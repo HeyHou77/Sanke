@@ -140,10 +140,6 @@ class Board(object):
         return out
 
     @property
-    def game_history(self):
-        return pd.read_csv('C:\\Users\\lol--\\Documents\\python\\Games\\game_data\\snake.csv', delimiter='\t')
-
-    @property
     def place_pi(self):
         possible_pi_positions = []
         save_board = self.board
@@ -294,8 +290,9 @@ class Board(object):
 
 
 def play_snake(position_list=[(5, 5)], move_index=(0, 1), board_size=(8, 26), game_over=False, score=0):
+    game_data_rep = 'game_data\\snake.xlsx'
 
-    data = pd.read_excel(io='C:\\Users\\lol--\\Documents\\python\\Games\\game_data\\snake.xlsx', index_col=0)
+    data = pd.read_excel(io=game_data_rep, index_col=0)
     board = Board()
 
     print('Leaderboard:\n' + str(data.max().sort_values(ascending=False)).strip('\ndtype: float64') + '\n')
@@ -321,7 +318,7 @@ def play_snake(position_list=[(5, 5)], move_index=(0, 1), board_size=(8, 26), ga
         if input('Do you want to play a nother game?(y / n): ') == 'n':
             playing = False
 
-    data.to_excel(excel_writer='C:\\Users\\lol--\\Documents\\python\\Games\\game_data\\snake.xlsx')
+    data.to_excel(excel_writer=game_data_rep)
 
 
 if __name__ == '__main__':
